@@ -1,4 +1,4 @@
-# Snort Challenge Room 
+# Snort Challenge - The Basics Room 
 
 ## Room Description
 The room invites you a challenge to investigate a series of traffic data and stop malicious activity under two different scenarios. Let's start working with Snort to analyse live and captured traffic.
