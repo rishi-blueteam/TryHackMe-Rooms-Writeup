@@ -229,6 +229,6 @@ This helps us to answer the question of which service and port and we get the an
 
 ## Room Takeaways
 
-<p> This room was far more interesting and something like a real world world problem kind of scenario. It really tested me and the capabilites I have on this tool. 
+<p> This room was far more interesting and something like a real-world problem kind of scenario. It really tested me and the capabilities I have with this tool. 
 
-Helped me to analyze way loads of packets, help me got clear with many linux cli commands, made me analytical, thoughtful, made me to make the commands as a tool I should be able to use via the cli for a better understandning. Its all about practice, analytical thinking, research of attacks, , understanding of attacks, network activities, capturing network telemetry, parsing logs, filtering out noise and capturing the right data. </p>
+Helped me to analyze way loads of packets, help me get clear with many Linux CLI commands, made me analytical and thoughtful, and made me to make the commands as a tool I should be able to use via the cli for a better understandning. This makes me also ponder on various ways I can create multiple rules in multiple ways, and I would probably make another write for the same challenge because the appraoch I want to try to make this challenge work in a real-life scenario should work out if we configure this rule in another way.
